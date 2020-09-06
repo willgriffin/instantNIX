@@ -76,8 +76,9 @@ pkgs.lib.makeExtensible (self: rec {
     gufw = self.gufw;
     gnome-disk-utility = pkgs.gnome3.gnome-disk-utility;
     xfce4-power-manager = pkgs.xfce.xfce4-power-manager;
-    #firaCodeNerd = self.firacodenerd;
-    firaCodeNerd = (pkgs.nerdfonts.override { withFont = "FiraCode"; });
+    # In unstable and 20.09 this does not download a 2GB+ file anymore, and needs fonts = [ "FiraCode" ]
+    firaCodeNerd = (pkgs.nerdfonts.override { withFont = "FiraCode"; });  
+    #firaCodeNerd = (pkgs.nerdfonts.override { Fons = [ "FiraCode" ]; });  
   };
   instantwelcome = with pkgs.python3Packages; pkgs.callPackage ./pkgs/instantWelcome {
     instantConf = self.instantconf;
