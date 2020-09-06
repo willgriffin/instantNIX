@@ -76,7 +76,8 @@ pkgs.lib.makeExtensible (self: rec {
     gufw = self.gufw;
     gnome-disk-utility = pkgs.gnome3.gnome-disk-utility;
     xfce4-power-manager = pkgs.xfce.xfce4-power-manager;
-    firaCodeNerd = self.firacodenerd;
+    #firaCodeNerd = self.firacodenerd;
+    firaCodeNerd = (pkgs.nerdfonts.override { withFont = "FiraCode"; });
   };
   instantwelcome = with pkgs.python3Packages; pkgs.callPackage ./pkgs/instantWelcome {
     instantConf = self.instantconf;
